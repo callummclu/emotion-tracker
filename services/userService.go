@@ -42,7 +42,7 @@ func GetAllUsers(c *gin.Context) {
 
 	offset = (offset - 1) * limit
 
-	rows, err := db.Query("select username, name, surname, display_image, description from users where strpos(username, $1) > 0 OR strpos(name, $1) > 0 OR strpos(surname, $1) > 0 LIMIT $2 OFFSET $3", query, limit, offset)
+	rows, err := db.Query("select username, name, surname, display_image from users where strpos(username, $1) > 0 OR strpos(name, $1) > 0 OR strpos(surname, $1) > 0 LIMIT $2 OFFSET $3", query, limit, offset)
 
 	if err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
@@ -70,10 +70,9 @@ func GetAllUsers(c *gin.Context) {
 			Name         string
 			Surname      string
 			DisplayImage string
-			Description  string
 		)
 
-		if err := rows.Scan(&Username, &Name, &Surname, &DisplayImage, &Description); err != nil {
+		if err := rows.Scan(&Username, &Name, &Surname, &DisplayImage); err != nil {
 			fmt.Print(err)
 		}
 
@@ -82,7 +81,6 @@ func GetAllUsers(c *gin.Context) {
 			Surname:      Surname,
 			Name:         Name,
 			DisplayImage: DisplayImage,
-			Description:  Description,
 		})
 	}
 

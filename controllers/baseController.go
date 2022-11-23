@@ -8,7 +8,10 @@ import (
 var Router *gin.Engine = gin.Default()
 
 func BaseController() {
-
+	AuthController()
+	UserController()
+	PostController()
+	FeedController()
 
 	Router.Run(configs.EnvPORT())
 }

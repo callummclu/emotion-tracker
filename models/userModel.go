@@ -3,7 +3,6 @@ package models
 import (
 	"database/sql"
 	"errors"
-
 	"github.com/callummclu/emotion-tracker/auth"
 	"github.com/callummclu/emotion-tracker/configs"
 	"github.com/lib/pq"
@@ -15,7 +14,6 @@ type User struct {
 	Surname             string   `json:"surname"`
 	Username            string   `json:"username"`
 	Email               string   `json:"email"`
-	Description         string   `json:"description"`
 	DisplayImage        string   `json:"display_image"`
 	Friends             []string `json:"friends"`
 	ReceivedInvitations []string `json:"received_invitations"`
@@ -23,7 +21,6 @@ type User struct {
 	EmailVerifiedAt     string   `json:"email_verified_at,omitempty"`
 	Password            string   `json:"password,omitempty"`
 	CreatedAt           string   `json:"created_at,omitempty"`
-	Likes               []string `json:"likes"`
 }
 
 type LogInUser struct {
@@ -36,7 +33,6 @@ type ReturnedUser struct {
 	Surname             string   `json:"surname"`
 	Username            string   `json:"username"`
 	DisplayImage        string   `json:"display_image"`
-	Description         string   `json:"description"`
 	Friends             []string `json:"friends"`
 	ReceivedInvitations []string `json:"received_invitations"`
 }
@@ -80,14 +76,14 @@ func (u *User) SaveUser() error {
 				return err
 			}
 			//Add the new user
-			insert_stmt, err := db.Prepare("INSERT INTO users (name,surname,username,email,password,display_image,description,friends,received_invitations,likes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$8,$8)")
+			insert_stmt, err := db.Prepare("INSERT INTO users (name,surname,username,email,password,display_image,friends,received_invitations) VALUES ($1,$2,$3,$4,$5,$6,$7,$7)")
 
 			if err != nil {
 				return err
 			}
 			defer insert_stmt.Close()
 			var emptyString []string = nil
-			_, err = insert_stmt.Exec(u.Name, u.Surname, u.Username, u.Email, hashedPassword, "", "", pq.Array(emptyString))
+			_, err = insert_stmt.Exec(u.Name, u.Surname, u.Username, u.Email, hashedPassword, "", pq.Array(emptyString))
 
 			return err
 		} else {
@@ -138,7 +134,7 @@ func (u *ReturnedUser) GetUserByUsernameQuery(query string) error {
 	}
 	defer db.Close()
 
-	err = db.QueryRow("SELECT username, name, surname, display_image, description, friends, received_invitations FROM users WHERE username = $1", query).Scan(&u.Username, &u.Name, &u.Surname, &u.DisplayImage, &u.Description, pq.Array(&u.Friends), pq.Array(&u.ReceivedInvitations))
+	err = db.QueryRow("SELECT username, name, surname, display_image, friends, received_invitations FROM users WHERE username = $1", query).Scan(&u.Username, &u.Name, &u.Surname, &u.DisplayImage, pq.Array(&u.Friends), pq.Array(&u.ReceivedInvitations))
 
 	return err
 }
