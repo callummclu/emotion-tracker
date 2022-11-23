@@ -1,0 +1,36 @@
+### create account
+
+POST http://localhost:3000/user
+
+{
+    "Email": "callummcluskey@gmail.com",
+    "Name":"callum",
+    "Surname":"McLuskey",
+    "Username":"callum",
+    "Password": "123456"
+}
+
+### login
+
+POST http://localhost:3000/auth/login
+
+{
+    "username":"callum",
+    "password":"123456"
+}
+
+### check token
+GET http://localhost:3000/auth/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJnby1zb2NpYWwuand0Z28uaW8iLCJleHAiOjE2NjkyMjcxNjksImlzcyI6Imp3dGdvLmlvIiwidXNlciI6ImNhbGx1bSJ9.YjaQ8munQQjWRvXSv4T8nCZoCnteBRjX5t7CjDbrzpI
+
+### new post
+
+POST http://localhost:3000/post/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJnby1zb2NpYWwuand0Z28uaW8iLCJleHAiOjE2NjkyMjcxNjksImlzcyI6Imp3dGdvLmlvIiwidXNlciI6ImNhbGx1bSJ9.YjaQ8munQQjWRvXSv4T8nCZoCnteBRjX5t7CjDbrzpI
+
+{
+    "title":"Hello",
+    "content":"This is a test post"
+}
+
+### get all posts
+
+GET http://localhost:3000/post
