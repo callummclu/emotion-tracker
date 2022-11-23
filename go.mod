@@ -1,4 +1,4 @@
-module emotion-tracker
+module github.com/callummclu/emotion-tracker
 
 go 1.19
 
