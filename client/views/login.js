@@ -1,33 +1,31 @@
 import { View, Text, TextInput, Button } from "react-native";
-import { useRef } from "react";
+import { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { Formik } from "formik";
 
-export const Login = () => {
-  const usernameRef = useRef(null);
-  const passwordRef = useRef(null);
+export const Login = ({ setLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { login, loggedIn } = useAuth();
 
   async function formSubmitLogin(e) {
     e.preventDefault();
     let LoginParams = {
-      username: usernameRef.current.value,
-      password: passwordRef.current.value,
+      username,
+      password,
     };
     await login(LoginParams);
-
-    redirectHome();
+    setLoggedIn(loggedIn);
   }
 
-  const redirectHome = () => {
-    window.location.href = window.location.origin;
-  };
   return (
-    <View>
+    <View style={{ marginTop: 50 }}>
       <Text>Login</Text>
-      <TextInput ref={usernameRef} placeholder="username"></TextInput>
       <TextInput
-        ref={passwordRef}
+        onChangeText={(newText) => setUsername(newText)}
+        placeholder="username"
+      ></TextInput>
+      <TextInput
+        onChangeText={(newText) => setPassword(newText)}
         secureTextEntry={true}
         placeholder="password"
       ></TextInput>

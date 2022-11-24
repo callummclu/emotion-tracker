@@ -1,9 +1,16 @@
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function login(loginParams) {
-  const response = fetch(`${process.env.REACT_APP_BACKEND_URI}/auth/login`, {
+  const response = fetch(`http://192.168.0.24:3000/auth/login`, {
     method: "POST",
-    body: JSON.stringify(loginParams),
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify({
+      Username: loginParams.username,
+      Password: loginParams.password,
+    }),
   });
   return response;
 }

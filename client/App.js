@@ -4,22 +4,33 @@ import { Friends } from "./views/friends";
 import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MyTabBar } from "./components/tabBar";
+import useAuth, { AuthProvider } from "./hooks/useAuth";
+import { useState } from "react";
+const Tab = createBottomTabNavigator();
 
-const Stack = createStackNavigator();
-
-const App = () => {
+const NavContainer = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Feed" component={Feed} />
-        <Stack.Screen name="Friends" component={Friends} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="DailyPrompt" component={DailyPrompt} />
-      </Stack.Navigator>
+      {/* <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="DailyPrompt" component={DailyPrompt} /> */}
+      <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
+        <Tab.Screen name="Feed" component={Feed} />
+        <Tab.Screen name="Friends" component={Friends} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
     </NavigationContainer>
+  );
+};
+
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  return (
+    <AuthProvider>
+      {loggedIn ? <NavContainer /> : <Login setLoggedIn={setLoggedIn} />}
+    </AuthProvider>
   );
 };
 

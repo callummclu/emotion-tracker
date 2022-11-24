@@ -1,22 +1,20 @@
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function signup(signupParams) {
-  const response = fetch(`${process.env.REACT_APP_BACKEND_URI}/user`, {
+  const response = fetch(`http://192.168.0.24:3000/user`, {
     method: "POST",
     body: JSON.stringify(signupParams),
   });
   return response;
 }
 
-export function checkAuth() {
-  let token = AsyncStorage.getItem("gocial_auth_token");
-  const response = fetch(`${process.env.REACT_APP_BACKEND_URI}/auth/${token}`);
+export async function checkAuth() {
+  let token = await AsyncStorage.getItem("gocial_auth_token");
+  const response = fetch(`http://192.168.0.24:3000/auth/${token}`);
   return response;
 }
 
 export function getUserDetails(username) {
-  const response = fetch(
-    `${process.env.REACT_APP_BACKEND_URI}/user/${username}`
-  );
+  const response = fetch(`http://192.168.0.24:3000/user/${username}`);
   return response;
 }

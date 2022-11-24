@@ -12,7 +12,7 @@ func LoginUser(c *gin.Context) {
 	user_login := models.NewLogInUser()
 	if err := c.ShouldBindJSON(&user_login); err != nil {
 		c.JSON(500, gin.H{
-			"error": err.Error(),
+			"error": err.Error(), "message": "first",
 		})
 		return
 	}
@@ -31,7 +31,7 @@ func LoginUser(c *gin.Context) {
 			return
 		}
 		c.JSON(500, gin.H{
-			"error": err.Error(),
+			"error": err.Error(), "message": "second",
 		})
 		return
 	}

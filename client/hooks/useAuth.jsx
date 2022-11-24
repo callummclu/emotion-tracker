@@ -23,7 +23,7 @@ export function AuthProvider({children}){
 
     useEffect(()=>{
         if (error) setError(null)
-    },[window.location.pathname])
+    },[])
 
     useEffect(() => {
         UsersApi.checkAuth()
@@ -60,6 +60,7 @@ export function AuthProvider({children}){
         setLoading(true)
         SessionsApi.login({username,password})
             .then(async (res) => {
+                
                 let res_json = await res.json()
                 if (!Object.hasOwn(res_json,'error')){
                     AsyncStorage.setItem("gocial_auth_token",res_json.token)
@@ -77,6 +78,7 @@ export function AuthProvider({children}){
                 } else {
                     setError(res_json.error)
                 }
+
             }).catch((error)=>{
                 setError(error)
             }).finally(()=>setLoading(false))
