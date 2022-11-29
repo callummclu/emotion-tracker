@@ -44,7 +44,8 @@ export function MyTabBar({ state, descriptors, navigation }) {
               onLongPress={onLongPress}
               style={{ flex: 1, display: 'flex', alignItems:"center",justifyContent:"center"}}
             >
-                {label=="Feed" && <Icon name='home' size={30} color="black" style={{height:80, marginTop:20}}/>}
+                {label=="Dashboard" && <Icon name='home' size={30} color="black" style={{height:80, marginTop:20}}/>}
+                {label=="Feed" && <Icon name='smile' size={30} color="black" style={{height:80, marginTop:20}}/>}
                 {label=="Friends" && <Icon name='users' size={30} color="black" style={{height:80, marginTop:20}}/>}
                 {label=="Profile" && <Icon name='user' size={30} color="black" style={{height:80, marginTop:20}}/>}
             </TouchableOpacity>

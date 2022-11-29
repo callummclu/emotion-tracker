@@ -1,6 +1,7 @@
 import { Login } from "./views/login";
 import { Register } from "./views/register";
 import { Feed } from "./views/feed";
+import { Dashboard } from "./views/dashboard";
 import { Friends } from "./views/friends";
 import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
@@ -28,7 +29,9 @@ const NavContainer = () => {
           headerShown: false,
         }}
       >
+        <Tab.Screen name="Dashboard" component={Dashboard} />
         <Tab.Screen name="Feed" component={Feed} />
+
         <Tab.Screen name="Friends" component={Friends} />
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
