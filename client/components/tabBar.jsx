@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Feather'
 export function MyTabBar({ state, descriptors, navigation }) {
     return (
       <View style={{ flexDirection: 'row' }}>
@@ -42,11 +42,11 @@ export function MyTabBar({ state, descriptors, navigation }) {
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={{ flex: 1 }}
+              style={{ flex: 1, display: 'flex', alignItems:"center",justifyContent:"center"}}
             >
-              <Text style={{ color: isFocused ? '#673ab7' : '#222', height: 80}}>
-                {label}
-              </Text>
+                {label=="Feed" && <Icon name='home' size={30} color="black" style={{height:80, marginTop:20}}/>}
+                {label=="Friends" && <Icon name='users' size={30} color="black" style={{height:80, marginTop:20}}/>}
+                {label=="Profile" && <Icon name='user' size={30} color="black" style={{height:80, marginTop:20}}/>}
             </TouchableOpacity>
           );
         })}

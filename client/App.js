@@ -14,9 +14,12 @@ const Tab = createBottomTabNavigator();
 const NavContainer = () => {
   return (
     <NavigationContainer>
-      {/* <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="DailyPrompt" component={DailyPrompt} /> */}
-      <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
+      <Tab.Navigator
+        tabBar={(props) => <MyTabBar {...props} />}
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Tab.Screen name="Feed" component={Feed} />
         <Tab.Screen name="Friends" component={Friends} />
         <Tab.Screen name="Profile" component={Profile} />

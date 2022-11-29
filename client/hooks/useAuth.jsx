@@ -11,6 +11,15 @@ import React, {
 import * as SessionsApi from  '../api/sessions'
 import * as UsersApi from '../api/users'
 
+import Toast from 'react-native-toast-message';
+
+const showToast = (message) => {
+  Toast.show({
+    type: 'success',
+    text1: message
+  });
+}
+
 
 const AuthContext = createContext({})
 
@@ -74,7 +83,9 @@ export function AuthProvider({children}){
                                     setUser(res_json.data)
                                 })
                         })
-                        .catch((_error)=>{})
+                        .catch((_error)=>{
+                            showToast(_error.toString())
+                        })
                 } else {
                     setError(res_json.error)
                 }
