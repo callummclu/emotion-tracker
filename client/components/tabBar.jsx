@@ -42,12 +42,12 @@ export function MyTabBar({ state, descriptors, navigation }) {
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={{ flex: 1, display: 'flex', alignItems:"center",justifyContent:"center"}}
+              style={{ flex: 1, display: 'flex', alignItems:"center",justifyContent:"center", borderColor:"black", borderTopWidth:2, borderRightWidth:2, height:60}}
             >
-                {label=="Dashboard" && <Icon name='home' size={30} color="black" style={{height:80, marginTop:20}}/>}
-                {label=="Feed" && <Icon name='smile' size={30} color="black" style={{height:80, marginTop:20}}/>}
-                {label=="Friends" && <Icon name='users' size={30} color="black" style={{height:80, marginTop:20}}/>}
-                {label=="Profile" && <Icon name='user' size={30} color="black" style={{height:80, marginTop:20}}/>}
+                {label=="Dashboard" && <Icon name='home' size={30} color={isFocused ? "#FF8E53" : "black"} style={{height:30}}/>}
+                {label=="Feed" && <Icon name='smile' size={30} color={isFocused ? "#FF8E53" : "black"} style={{height:30}}/>}
+                {label=="Friends" && <Icon name='users' size={30} color={isFocused ? "#FF8E53" : "black"} style={{height:30}}/>}
+                {label=="Profile" && <Icon name='user' size={30} color={isFocused ? "#FF8E53" : "black"} style={{height:30}}/>}
             </TouchableOpacity>
           );
         })}

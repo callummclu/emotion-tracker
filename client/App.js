@@ -26,7 +26,7 @@ const NavContainer = () => {
       <Tab.Navigator
         tabBar={(props) => <MyTabBar {...props} />}
         screenOptions={{
-          headerShown: false,
+          headerShown: false
         }}
       >
         <Tab.Screen name="Dashboard" component={Dashboard} />
