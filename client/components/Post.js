@@ -1,19 +1,36 @@
 import { useState } from "react";
 import { View, Text } from "react-native";
 
-export const Post = ({ timeStamp, emoji, name }) => {
+export const Post = ({ timeStamp, emoji, name, accessGranted }) => {
   let [nameHidden, setNameHidden] = useState(true);
 
   return (
     <View
       style={{
         width: 340,
-        height: 205,
+        height: accessGranted ? 235 : 205,
         backgroundColor: "white",
         borderRadius: 20,
         margin: 10,
       }}
     >
+      {accessGranted && (
+        <View
+          style={{
+            backgroundColor: "limegreen",
+            borderTopRightRadius: 20,
+            borderTopLeftRadius: 20,
+            height: 30,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ textAlign: "center", color: "white" }}>
+            You can see who posted
+          </Text>
+        </View>
+      )}
       <View
         style={{
           display: "flex",
@@ -44,7 +61,7 @@ export const Post = ({ timeStamp, emoji, name }) => {
         </View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text
-            onPress={() => setNameHidden(!nameHidden)}
+            onPress={() => accessGranted && setNameHidden(!nameHidden)}
             style={{ fontSize: 50 }}
           >
             {nameHidden ? "👁️" : "🙈"}

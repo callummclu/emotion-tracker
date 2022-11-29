@@ -52,7 +52,12 @@ export const Feed = () => {
         />
         <View style={{ marginTop: 150 }}>
           <ScrollView>
-            <Post name="callum" emoji="😀" timeStamp={"15:21:13"} />
+            <Post
+              accessGranted
+              name="callum"
+              emoji="😀"
+              timeStamp={"15:21:13"}
+            />
             <Post name="sajan" emoji="😎" timeStamp={"15:21:13"} />
             <Post name="ben" emoji="😔" timeStamp={"15:21:13"} />
             <Post name="evie" emoji="😠" timeStamp={"15:21:13"} />
