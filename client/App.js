@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Q1 } from "./views/Q1";
 import { Q2 } from "./views/Q2";
 import { Q3 } from "./views/Q3";
+import { Q4 } from "./views/Q4";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,7 @@ const App = () => {
   const HOCDailyPrompt = () => (
     <DailyPrompt setDailyPromptComplete={setDailyPromptComplete} />
   );
+  const HOCQ4 = () => <Q4 setDailyPromptComplete={setDailyPromptComplete} />;
   return (
     <AuthProvider>
       <NavigationContainer>
@@ -60,6 +62,7 @@ const App = () => {
             <Stack.Screen name="Q1" component={Q1} />
             <Stack.Screen name="Q2" component={Q2} />
             <Stack.Screen name="Q3" component={Q3} />
+            <Stack.Screen name="Q4" component={HOCQ4} />
           </Stack.Navigator>
         )}
       </NavigationContainer>

@@ -18,7 +18,28 @@ export const Q3 = () => {
         resizeMode="cover"
         style={styles.image}
       >
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginLeft: -200 }}>
+          😔
+        </Text>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginLeft: 100 }}>
+          ☺️
+        </Text>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginLeft: 200 }}>
+          😠
+        </Text>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginRight: 100 }}>
+          😎
+        </Text>
         <SpeechBubble>What emoji represents you today?</SpeechBubble>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginLeft: 50 }}>
+          😭
+        </Text>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginRight: 120 }}>
+          😀
+        </Text>
+        <Text onPress={goToNextPage} style={{ fontSize: 60, marginLeft: 100 }}>
+          😕
+        </Text>
       </ImageBackground>
     </View>
   );
