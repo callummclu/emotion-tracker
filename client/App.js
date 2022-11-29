@@ -1,19 +1,24 @@
 import { Login } from "./views/login";
+import { Register } from "./views/register";
 import { Feed } from "./views/feed";
 import { Friends } from "./views/friends";
 import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import "react-native-gesture-handler";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MyTabBar } from "./components/tabBar";
 import useAuth, { AuthProvider } from "./hooks/useAuth";
 import { useState } from "react";
+import { Q1 } from "./views/Q1";
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const NavContainer = () => {
   return (
-    <NavigationContainer>
+    <>
       <Tab.Navigator
         tabBar={(props) => <MyTabBar {...props} />}
         screenOptions={{
@@ -24,15 +29,36 @@ const NavContainer = () => {
         <Tab.Screen name="Friends" component={Friends} />
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
-    </NavigationContainer>
+    </>
   );
 };
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [dailyPromptComplete, setDailyPromptComplete] = useState(false);
+
+  const HOCLogin = () => <Login setLoggedIn={setLoggedIn} />;
+  const HOCDailyPrompt = () => (
+    <DailyPrompt setDailyPromptComplete={setDailyPromptComplete} />
+  );
   return (
     <AuthProvider>
-      {loggedIn ? <NavContainer /> : <Login setLoggedIn={setLoggedIn} />}
+      <NavigationContainer>
+        {dailyPromptComplete ? (
+          <NavContainer />
+        ) : (
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Login" component={HOCLogin} />
+            <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="DailyPrompt" component={HOCDailyPrompt} />
+            <Stack.Screen name="Q1" component={Q1} />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
     </AuthProvider>
   );
 };

@@ -11,20 +11,26 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { TextInputMM } from "../components/textInput";
 import { ButtonMM } from "../components/button";
+import { useNavigation } from "@react-navigation/native";
 
-export const Login = ({ setLoggedIn }) => {
+export const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login, loggedIn } = useAuth();
+  const setLoggedIn = props.setLoggedIn;
 
   async function formSubmitLogin(e) {
-    e.preventDefault();
-    let LoginParams = {
-      username,
-      password,
-    };
-    await login(LoginParams);
-    setLoggedIn(loggedIn);
+    // e.preventDefault();
+    // let LoginParams = {
+    //   username,
+    //   password,
+    // };
+    // await login(LoginParams);
+    // setLoggedIn(loggedIn);
+
+    if (loggedIn) {
+      navigation.navigate("DailyPrompt");
+    }
   }
 
   const styles = StyleSheet.create({
@@ -45,6 +51,8 @@ export const Login = ({ setLoggedIn }) => {
       backgroundColor: "#000000c0",
     },
   });
+
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -71,6 +79,7 @@ export const Login = ({ setLoggedIn }) => {
         ></TextInputMM>
         <ButtonMM onPress={formSubmitLogin} text="login"></ButtonMM>
         <Text
+          onPress={() => navigation.navigate("Register")}
           style={{
             textDecorationLine: "underline",
             paddingTop: 5,
