@@ -45,6 +45,7 @@ export const Register = () => {
           secureTextEntry={true}
           placeholder="password"
         ></TextInputMM>
+
         <ButtonMM
           onPress={() => navigation.navigate("Login")}
           text="Sign up"

@@ -26,7 +26,6 @@ export const DailyPrompt = ({ setDailyPromptComplete }) => {
         <Text style={{ fontSize: 100, paddingBottom: 50 }}>☁️ 😎</Text>
         <Text style={{ fontSize: 20 }}>Select on the scale</Text>
         <Rating
-          ratingColor="black"
           style={{ paddingVertical: 10 }}
           tintColor={"#FF8E53"}
           type="custom"

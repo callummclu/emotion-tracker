@@ -13,6 +13,8 @@ import { MyTabBar } from "./components/tabBar";
 import useAuth, { AuthProvider } from "./hooks/useAuth";
 import { useState } from "react";
 import { Q1 } from "./views/Q1";
+import { Q2 } from "./views/Q2";
+import { Q3 } from "./views/Q3";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +58,8 @@ const App = () => {
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="DailyPrompt" component={HOCDailyPrompt} />
             <Stack.Screen name="Q1" component={Q1} />
+            <Stack.Screen name="Q2" component={Q2} />
+            <Stack.Screen name="Q3" component={Q3} />
           </Stack.Navigator>
         )}
       </NavigationContainer>

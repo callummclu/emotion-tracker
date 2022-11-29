@@ -19,6 +19,7 @@ export const Login = (props) => {
   const { login, loggedIn } = useAuth();
   const setLoggedIn = props.setLoggedIn;
 
+  const navigation = useNavigation();
   async function formSubmitLogin(e) {
     // e.preventDefault();
     // let LoginParams = {
@@ -28,9 +29,7 @@ export const Login = (props) => {
     // await login(LoginParams);
     // setLoggedIn(loggedIn);
 
-    if (loggedIn) {
-      navigation.navigate("DailyPrompt");
-    }
+    navigation.navigate("DailyPrompt");
   }
 
   const styles = StyleSheet.create({
@@ -51,8 +50,6 @@ export const Login = (props) => {
       backgroundColor: "#000000c0",
     },
   });
-
-  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -77,7 +74,9 @@ export const Login = (props) => {
           placeholder="password"
           bottomText="Forgotten Password"
         ></TextInputMM>
+
         <ButtonMM onPress={formSubmitLogin} text="login"></ButtonMM>
+
         <Text
           onPress={() => navigation.navigate("Register")}
           style={{
