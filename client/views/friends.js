@@ -25,30 +25,37 @@ export const Friends = () => (
       <RowItem
         title="ben_j_01"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="james_wyatt"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="stevie_okes"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="Jill_bass"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="dave_b7"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="yusty"
         icon="image"
+        colorBG="white"
       />
       <RowItem
         title="craigy"
         icon="image"
+        colorBG="white"
       />
     </ImageBackground>
   </SafeAreaView>

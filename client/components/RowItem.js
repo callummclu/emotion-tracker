@@ -5,10 +5,10 @@ import Icon from 'react-native-vector-icons/Feather'
 
 class RowItem extends Component{
     render(){
-        const {title, icon} = this.props;
+        const {title, icon, colorBG: backgroundColor} = this.props;
         return(
             <View style={{paddingTop:5, alignItems:"center"}}>
-                <TouchableOpacity style={{backgroundColor:"white", width:350, height:60, paddingTop:10, borderRadius:16, marginHorizontal:1.5, borderColor:"black", borderWidth:2 }}>
+                <TouchableOpacity style={{backgroundColor, width:350, height:60, paddingTop:10, borderRadius:16, marginHorizontal:1.5, borderColor:"black", borderWidth:2 }}>
                     <View style={{flexDirection:"row"}}>
                         <View style={{marginLeft:5}}>
                             <Icon name={icon} size={40} color={"black"}/>
@@ -27,7 +27,8 @@ class RowItem extends Component{
 
 RowItem.propTypes={
     title: PropTypes.string,
-    icon: PropTypes.string
+    icon: PropTypes.string,
+    colorBG: PropTypes.string
 };
 
 export default RowItem;
