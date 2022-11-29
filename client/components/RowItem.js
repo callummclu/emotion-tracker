@@ -25,7 +25,7 @@ class RowItem extends Component{
     }
 }
 
-RowItem.PropTypes={
+RowItem.propTypes={
     title: PropTypes.string,
     icon: PropTypes.string
 };
