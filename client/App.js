@@ -58,6 +58,16 @@ const DashboardNav = () => {
   );
 };
 
+const ProfileNav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Main" component={Profile} />
+      <Stack.Screen />
+      <Stack.Screen />
+    </Stack.Navigator>
+  );
+};
+
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [dailyPromptComplete, setDailyPromptComplete] = useState(false);
