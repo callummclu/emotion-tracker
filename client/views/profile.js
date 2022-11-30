@@ -2,12 +2,16 @@ import {
   NavigationHelpersContext,
   useNavigation,
 } from "@react-navigation/native";
+import { VictoryBar } from "victory-native";
+
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 import RowItem from "../components/RowItem";
 
 export const Profile = () => {
   const navigation = useNavigation();
 
+  const days = ["mon", "tues", "wed", "thur", "fri", "sat", "sun"];
+  const colors = ["green", "green", "orange", "red", "orange", "gray", "gray"];
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -47,7 +51,49 @@ export const Profile = () => {
             backgroundColor: "white",
             borderRadius: 20,
           }}
-        ></View>
+        >
+          <Text
+            style={{
+              marginTop: 20,
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: 20,
+            }}
+          >
+            This week
+          </Text>
+          <VictoryBar
+            width={320}
+            height={200}
+            data={[
+              { x: 1, y: 3, y0: 0 },
+              { x: 2, y: 3, y0: 0 },
+              { x: 3, y: 3, y0: 0 },
+              { x: 4, y: 3, y0: 0 },
+              { x: 5, y: 3, y0: 0 },
+              { x: 6, y: 3, y0: 0 },
+              { x: 7, y: 3, y0: 0 },
+            ]}
+            barWidth={35}
+            style={{
+              data: {
+                fill: ({ datum }) => `${colors[datum.x - 1]}`,
+              },
+            }}
+            labels={({ datum }) => `${days[datum.x - 1]}`}
+          />
+          <Text
+            style={{
+              marginTop: -30,
+              textAlign: "center",
+
+              fontSize: 16,
+              textDecorationLine: "underline",
+            }}
+          >
+            See more...
+          </Text>
+        </View>
         <RowItem
           style={{ marginTop: 40 }}
           title="Settings"
