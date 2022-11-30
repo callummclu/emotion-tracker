@@ -118,21 +118,23 @@ export const Dashboard = () => {
           title="View todays report"
           icon="file-text"
           colorBG="#FFD29C"
+          
         />
-        <View
+        <RowItem
+          title="View thought diary"
+          icon="book-open"
+          colorBG="#FFD29C"
           onPress={() =>
             navigation.navigate("Dashboard", {
               screen: "DashboardThoughtDiary",
             })
           }
-        >
-          <RowItem
-            title="View thought diary"
-            icon="book-open"
-            colorBG="#FFD29C"
-          />
-        </View>
-        <RowItem title="Access help" icon="compass" colorBG="#FFD29C" />
+        />
+        <RowItem 
+          title="Access help" 
+          icon="compass" 
+          colorBG="#FFD29C" 
+        />
       </ImageBackground>
     </View>
   );

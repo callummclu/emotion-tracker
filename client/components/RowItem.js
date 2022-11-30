@@ -31,6 +31,7 @@ class RowItem extends Component {
             borderColor: "black",
             borderWidth: 2,
           }}
+          onPress={onPress}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View style={{ marginLeft: 5 }}>
@@ -61,6 +62,7 @@ RowItem.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.string,
   colorBG: PropTypes.string,
+  onPress: PropTypes.func
 };
 
 export default RowItem;
