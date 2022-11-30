@@ -9,9 +9,11 @@ import {
 import { Dimensions } from "react-native";
 import RowItem from "../components/RowItem";
 import { useNavigation } from "@react-navigation/native";
+import { VictoryLine, VictoryChart, VictoryAxis } from "victory-native";
 
 export const Dashboard = () => {
   const navigation = useNavigation();
+  const days = ["mon", "tues", "wed", "thur", "fri", "sat", "sun"];
 
   const styles = StyleSheet.create({
     container: {
@@ -64,45 +66,42 @@ export const Dashboard = () => {
             borderRadius: 20,
             marginTop: 10,
             padding: 10,
+            width: 360,
             marginBottom: 20,
           }}
         >
-          <Chart
-            style={{ height: 200, width: 350 }}
-            data={[
-              { x: -2, y: 15 },
-              { x: -1, y: 10 },
-              { x: 0, y: 12 },
-              { x: 1, y: -7 },
-              { x: 2, y: 6 },
-              { x: 3, y: -8 },
-              { x: 4, y: 10 },
-            ]}
-            padding={{ left: 40, bottom: 20, right: 20, top: 20 }}
-            xDomain={{ min: 0, max: 4 }}
-            yDomain={{ min: -20, max: 20 }}
-          >
-            <VerticalAxis
-              includeOriginTick={true}
-              tickCount={3}
-              theme={{ labels: { formatter: (v) => v.toFixed(2) } }}
+          <VictoryChart width={370}>
+            <VictoryLine
+              style={{ height: 200, width: 200 }}
+              data={[
+                { x: 1, y: 15 },
+                { x: 2, y: -2 },
+                { x: 3, y: 12 },
+                { x: 4, y: -15 },
+                { x: 5, y: 6 },
+                { x: 6, y: -8 },
+              ]}
+              minDomain={{ y: -15 }}
+              padding={{ left: 40, bottom: 20, right: 20, top: 20 }}
+              xDomain={{ min: 0, max: 4 }}
+              yDomain={{ min: -20, max: 20 }}
             />
-            <HorizontalAxis tickCount={5} />
-            <Area
-              theme={{
-                gradient: {
-                  from: { color: "#ffa502" },
-                  to: { color: "#ffa502", opacity: 0.4 },
-                },
-              }}
-            />
-            <Line
-              theme={{
-                stroke: { color: "#ffa502", width: 5 },
-                scatter: { default: { width: 4, height: 4, rx: 2 } },
-              }}
-            />
-          </Chart>
+
+            <VictoryAxis label={""} style={{ tickLabels: { fill: "none" } }} />
+            {["", "", "", "", "", "", ""].map((d, i) => {
+              return (
+                <>
+                  <VictoryAxis
+                    label={"happiness"}
+                    dependentAxis
+                    key={i}
+                    style={{ tickLabels: { fill: "none" } }}
+                    axisValue={d}
+                  />
+                </>
+              );
+            })}
+          </VictoryChart>
         </View>
         <Text
           style={{
@@ -121,7 +120,6 @@ export const Dashboard = () => {
           onPress={() =>
             navigation.navigate("Dashboard", { screen: "TodaysReport" })
           }
-          
         />
         <RowItem
           title="View thought diary"
@@ -131,10 +129,10 @@ export const Dashboard = () => {
             navigation.navigate("Dashboard", { screen: "ThoughtDiary" })
           }
         />
-        <RowItem 
-          title="Access help" 
-          icon="compass" 
-          colorBG="#FFD29C" 
+        <RowItem
+          title="Access help"
+          icon="compass"
+          colorBG="#FFD29C"
           onPress={() =>
             navigation.navigate("Dashboard", { screen: "AccessHelp" })
           }
