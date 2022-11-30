@@ -58,6 +58,7 @@ export const Profile = () => {
         <RowItem
           style={{ marginTop: 20 }}
           title="View all data"
+          onPress={() => navigation.navigate("Profile", { screen: "ViewData" })}
           icon="list"
           colorBG="#FFD29C"
         />

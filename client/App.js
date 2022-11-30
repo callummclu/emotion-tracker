@@ -21,6 +21,7 @@ import { DiaryEntry } from "./views/diary-entry";
 import { YourThoughtDiary } from "./views/your-thought-diary";
 import { TodaysReport } from "./views/todays-report";
 import { AccessHelp } from "./views/access-help";
+import { ViewData } from "./views/view-data";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,7 @@ const ProfileNav = () => {
     >
       <Stack.Screen name="Main" component={Profile} />
       <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="ViewData" component={ViewData} />
     </Stack.Navigator>
   );
 };
