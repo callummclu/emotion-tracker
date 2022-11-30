@@ -125,9 +125,7 @@ export const Dashboard = () => {
           icon="book-open"
           colorBG="#FFD29C"
           onPress={() =>
-            navigation.navigate("Dashboard", {
-              screen: "DashboardThoughtDiary",
-            })
+            navigation.navigate("Dashboard", { screen: "ThoughtDiary" })
           }
         />
         <RowItem 

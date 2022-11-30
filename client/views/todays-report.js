@@ -12,8 +12,7 @@ import { Rating, AirbnbRating } from "react-native-ratings";
 import { useNavigation } from "@react-navigation/native";
 import { TextInput } from "react-native-gesture-handler";
 import { ReportBox } from "../components/ReportBox";
-import { DiaryEntryBox } from "../components/diaryEntry";
-export const YourThoughtDiary = () => {
+export const TodaysReport = ({ setDailyPromptComplete }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -29,21 +28,22 @@ export const YourThoughtDiary = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={{ fontWeight: "bold", fontSize: 32 }}>
-          Your thought diary
-        </Text>
+        <Text style={{ fontWeight: "bold", fontSize: 32 }}>Todays report</Text>
 
-        <DiaryEntryBox
-          date="Tuesday 24th Nov"
-          entry="Today i feel a bit sad but i feel this may be to do with my upcoming deadlines. Hopefully will be better soon"
+        <ReportBox
+          emoji="🥵"
+          answer="Overwhemled"
+          question="How do you feel today?"
         />
-        <DiaryEntryBox
-          date="Tuesday 23rd Nov"
-          entry="I met up with steve for a coffee catch up which was fun!"
+        <ReportBox
+          emoji="🤗"
+          answer="Peaceful"
+          question="How was your sleep last night?"
         />
-        <DiaryEntryBox
-          date="Tuesday 20th Nov"
-          entry="Out for a drink  with the mates, good  to relax, feeling better. Do more often!"
+        <ReportBox
+          emoji="😔"
+          answer="😔"
+          question="What emoji represents you today?"
         />
       </ImageBackground>
     </View>

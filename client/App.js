@@ -7,7 +7,7 @@ import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { Settings } from "./views/settings";
 import "react-native-gesture-handler";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MyTabBar } from "./components/tabBar";
@@ -19,6 +19,8 @@ import { Q3 } from "./views/Q3";
 import { Q4 } from "./views/Q4";
 import { DiaryEntry } from "./views/diary-entry";
 import { YourThoughtDiary } from "./views/your-thought-diary";
+import { TodaysReport } from "./views/todays-report";
+import { AccessHelp } from "./views/access-help";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -48,8 +50,19 @@ const DashboardNav = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="DashboardMain" component={Dashboard} />
-      <Stack.Screen name="DashboardThoughtDiary" component={YourThoughtDiary} />
+      <Stack.Screen name="Main" component={Dashboard} />
+      <Stack.Screen name="ThoughtDiary" component={YourThoughtDiary} />
+      <Stack.Screen name="TodaysReport" component={TodaysReport} />
+      <Stack.Screen name="AccessHelp" component={AccessHelp} />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileNav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Main" component={Profile} />
+      <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
   );
 };
