@@ -31,11 +31,7 @@ class RowItem extends Component {
             borderColor: "black",
             borderWidth: 2,
           }}
-<<<<<<< HEAD
           onPress={onPress}
-=======
-          onPress={onPress || null}
->>>>>>> 85665671e02406816976a986d0929ca634669807
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View style={{ marginLeft: 5 }}>

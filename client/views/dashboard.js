@@ -118,6 +118,9 @@ export const Dashboard = () => {
           title="View todays report"
           icon="file-text"
           colorBG="#FFD29C"
+          onPress={() =>
+            navigation.navigate("Dashboard", { screen: "TodaysReport" })
+          }
           
         />
         <RowItem
@@ -132,6 +135,9 @@ export const Dashboard = () => {
           title="Access help" 
           icon="compass" 
           colorBG="#FFD29C" 
+          onPress={() =>
+            navigation.navigate("Dashboard", { screen: "AccessHelp" })
+          }
         />
       </ImageBackground>
     </View>

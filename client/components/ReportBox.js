@@ -7,7 +7,7 @@ export const ReportBox = ({ question, answer, emoji }) => {
       <View
         style={{
           width: 340,
-          height: accessGranted ? 235 : 205,
+          height: 205,
           backgroundColor: "white",
           borderRadius: 20,
           margin: 10,
