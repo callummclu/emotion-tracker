@@ -37,7 +37,7 @@ const NavContainer = () => {
         <Tab.Screen name="Feed" component={Feed} />
 
         <Tab.Screen name="Friends" component={Friends} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Profile" component={ProfileNav} />
       </Tab.Navigator>
     </>
   );
@@ -60,7 +60,11 @@ const DashboardNav = () => {
 
 const ProfileNav = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Main" component={Profile} />
       <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>

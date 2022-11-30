@@ -1,7 +1,13 @@
+import {
+  NavigationHelpersContext,
+  useNavigation,
+} from "@react-navigation/native";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 import RowItem from "../components/RowItem";
 
 export const Profile = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -45,6 +51,7 @@ export const Profile = () => {
         <RowItem
           style={{ marginTop: 40 }}
           title="Settings"
+          onPress={() => navigation.navigate("Profile", { screen: "Settings" })}
           icon="settings"
           colorBG="#FFD29C"
         />
