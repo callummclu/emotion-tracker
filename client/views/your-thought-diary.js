@@ -11,6 +11,7 @@ import { SpeechBubble } from "../components/speechBubble";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { useNavigation } from "@react-navigation/native";
 import { TextInput } from "react-native-gesture-handler";
+import { ReportBox } from "../components/ReportBox";
 export const YourThoughtDiary = ({ setDailyPromptComplete }) => {
   const navigation = useNavigation();
   return (
@@ -27,22 +28,25 @@ export const YourThoughtDiary = ({ setDailyPromptComplete }) => {
         resizeMode="cover"
         style={styles.image}
       >
-        <SpeechBubble>Add to your thought diary</SpeechBubble>
-        <TextInput
-          placeholder="Type here ..."
-          style={{
-            width: 340,
-            height: 300,
-            backgroundColor: "white",
-            margin: 20,
-            borderRadius: 20,
-            borderColor: "black",
-            borderWidth: 2,
-            padding: 20,
-            paddingTop: 20,
-          }}
-          multiline={true}
-        ></TextInput>
+        <Text style={{ fontWeight: "bold", fontSize: 32 }}>
+          Your thought diary
+        </Text>
+
+        <ReportBox
+          emoji="🥵"
+          answer="Overwhemled"
+          question="How do you feel today?"
+        />
+        <ReportBox
+          emoji="🤗"
+          answer="Peaceful"
+          question="How was your sleep last night?"
+        />
+        <ReportBox
+          emoji="😔"
+          answer="😔"
+          question="What emoji represents you today?"
+        />
       </ImageBackground>
     </View>
   );
