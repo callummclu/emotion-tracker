@@ -19,6 +19,8 @@ import { Q3 } from "./views/Q3";
 import { Q4 } from "./views/Q4";
 import { DiaryEntry } from "./views/diary-entry";
 import { YourThoughtDiary } from "./views/your-thought-diary";
+import { TodaysReport } from "./views/todays-report";
+import { AccessHelp } from "./views/access-help";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -48,8 +50,10 @@ const DashboardNav = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="DashboardMain" component={Dashboard} />
-      <Stack.Screen name="DashboardThoughtDiary" component={YourThoughtDiary} />
+      <Stack.Screen name="Main" component={Dashboard} />
+      <Stack.Screen name="ThoughtDiary" component={YourThoughtDiary} />
+      <Stack.Screen name="TodaysReport" component={TodaysReport} />
+      <Stack.Screen name="AccessHelp" component={AccessHelp} />
     </Stack.Navigator>
   );
 };
