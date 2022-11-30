@@ -10,41 +10,44 @@ import { SpeechBubble } from "../components/speechBubble";
 
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { useNavigation } from "@react-navigation/native";
-import { TextInput } from "react-native-gesture-handler";
+import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { ReportBox } from "../components/ReportBox";
+import Icon from "react-native-vector-icons/Feather";
 export const TodaysReport = ({ setDailyPromptComplete }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() =>
-          navigation.navigate("Dashboard", { screen: "DashboardMain" })
-        }
-      >
-        <Text>X</Text>
-      </Pressable>
       <ImageBackground
         source={require("../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={{ fontWeight: "bold", fontSize: 32 }}>Todays report</Text>
-
-        <ReportBox
-          emoji="🥵"
-          answer="Overwhemled"
-          question="How do you feel today?"
-        />
-        <ReportBox
-          emoji="🤗"
-          answer="Peaceful"
-          question="How was your sleep last night?"
-        />
-        <ReportBox
-          emoji="😔"
-          answer="😔"
-          question="What emoji represents you today?"
-        />
+        <Pressable
+          style={{ marginRight: 300, marginTop: 50 }}
+          onPress={() => navigation.navigate("Dashboard", { screen: "Main" })}
+        >
+          <Icon name={"arrow-left"} size={40} color={"black"} />
+        </Pressable>
+        <Text style={{ fontWeight: "bold", fontSize: 45, margin: 40 }}>
+          Todays report
+        </Text>
+        <ScrollView>
+          <ReportBox
+            emoji="🥵"
+            answer="Overwhemled"
+            question="How do you feel today?"
+          />
+          <ReportBox
+            emoji="🤗"
+            answer="Peaceful"
+            question="How was your sleep last night?"
+          />
+          <ReportBox
+            emoji="😔"
+            answer="😔"
+            question="What emoji represents you today?"
+          />
+        </ScrollView>
       </ImageBackground>
     </View>
   );

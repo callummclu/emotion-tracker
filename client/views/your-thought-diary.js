@@ -13,22 +13,22 @@ import { useNavigation } from "@react-navigation/native";
 import { TextInput } from "react-native-gesture-handler";
 import { ReportBox } from "../components/ReportBox";
 import { DiaryEntryBox } from "../components/diaryEntry";
+import Icon from "react-native-vector-icons/Feather";
 export const YourThoughtDiary = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Pressable
-        onPress={() =>
-          navigation.navigate("Dashboard", { screen: "DashboardMain" })
-        }
-      >
-        <Text>X</Text>
-      </Pressable>
       <ImageBackground
         source={require("../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
       >
+        <Pressable
+          style={{ marginRight: 300, marginTop: -100, marginBottom: 50 }}
+          onPress={() => navigation.navigate("Dashboard", { screen: "Main" })}
+        >
+          <Icon name={"arrow-left"} size={40} color={"black"} />
+        </Pressable>
         <Text style={{ fontWeight: "bold", fontSize: 32 }}>
           Your thought diary
         </Text>

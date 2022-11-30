@@ -7,21 +7,32 @@ export const ReportBox = ({ question, answer, emoji }) => {
       <View
         style={{
           width: 340,
-          height: 205,
+          height: 165,
+          borderWidth: 1,
           backgroundColor: "white",
           borderRadius: 20,
           margin: 10,
+          paddingTop: 20,
         }}
       >
-        <Text>When asked:</Text>
-        <Text>{question}</Text>
-        <View style={{ display: "flex", flexDirection: "row" }}>
-          <Text>{emoji}</Text>
+        <Text style={{ textAlign: "center", fontSize: 20 }}>When asked:</Text>
+        <Text style={{ textAlign: "center" }}>{question}</Text>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            marginTop: 20,
+          }}
+        >
+          <Text style={{ fontSize: 40 }}>{emoji}</Text>
           <View>
-            <Text>You clicked:</Text>
-            <Text>{answer}</Text>
+            <Text style={{ textAlign: "center", fontSize: 20 }}>
+              You clicked:
+            </Text>
+            <Text style={{ textAlign: "center" }}>{answer}</Text>
           </View>
-          <Text>{emoji}</Text>
+          <Text style={{ fontSize: 40 }}>{emoji}</Text>
         </View>
       </View>
     </>
