@@ -3,7 +3,7 @@ import {
   View,
   ImageBackground,
   Image,
-  Text,
+  TextInput,
   Pressable,
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
@@ -53,7 +53,21 @@ export const AddFriend = () => {
         >
           <Icon name={"arrow-left"} size={40} color={"black"} />
         </Pressable>
-        <RowItem title="add by username" icon="search" colorBG="#FFD29C" />
+        <View
+          style={{ paddingTop: 40, paddingBottom: 20, alignItems: "center" }}
+        >
+          <TextInput
+            placeholder="   Add by username"
+            style={{
+              backgroundColor: "#FFD29C",
+              width: 300,
+              height: 50,
+              borderRadius: 16,
+              borderColor: "black",
+              borderWidth: 2,
+            }}
+          />
+        </View>
       </ImageBackground>
     </View>
   );
