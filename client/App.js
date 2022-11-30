@@ -17,6 +17,7 @@ import { Q1 } from "./views/Q1";
 import { Q2 } from "./views/Q2";
 import { Q3 } from "./views/Q3";
 import { Q4 } from "./views/Q4";
+import { DiaryEntry } from "./views/diary-entry";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ const NavContainer = () => {
       <Tab.Navigator
         tabBar={(props) => <MyTabBar {...props} />}
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}
       >
         <Tab.Screen name="Dashboard" component={Dashboard} />
@@ -47,7 +48,9 @@ const App = () => {
   const HOCDailyPrompt = () => (
     <DailyPrompt setDailyPromptComplete={setDailyPromptComplete} />
   );
-  const HOCQ4 = () => <Q4 setDailyPromptComplete={setDailyPromptComplete} />;
+  const HOCDiaryEntry = () => (
+    <DiaryEntry setDailyPromptComplete={setDailyPromptComplete} />
+  );
   return (
     <AuthProvider>
       <NavigationContainer>
@@ -65,7 +68,8 @@ const App = () => {
             <Stack.Screen name="Q1" component={Q1} />
             <Stack.Screen name="Q2" component={Q2} />
             <Stack.Screen name="Q3" component={Q3} />
-            <Stack.Screen name="Q4" component={HOCQ4} />
+            <Stack.Screen name="Q4" component={Q4} />
+            <Stack.Screen name="DiaryEntry" component={HOCDiaryEntry} />
           </Stack.Navigator>
         )}
       </NavigationContainer>

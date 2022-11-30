@@ -4,7 +4,7 @@ import { SpeechBubble } from "../components/speechBubble";
 
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { useNavigation } from "@react-navigation/native";
-export const Q4 = ({ setDailyPromptComplete }) => {
+export const Q4 = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ export const Q4 = ({ setDailyPromptComplete }) => {
           tintColor={"#FF8E53"}
           type="custom"
           ratingColor="black"
-          onFinishRating={() => setDailyPromptComplete(true)}
+          onFinishRating={() => navigation.navigate("DiaryEntry")}
         />
       </ImageBackground>
     </View>
