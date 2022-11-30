@@ -3,6 +3,7 @@ import { Register } from "./views/register";
 import { Feed } from "./views/feed";
 import { Dashboard } from "./views/dashboard";
 import { Friends } from "./views/friends";
+import { AddFriend } from "./views/add-friend";
 import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
 import { NavigationContainer } from "@react-navigation/native";
@@ -37,7 +38,7 @@ const NavContainer = () => {
         <Tab.Screen name="Dashboard" component={DashboardNav} />
         <Tab.Screen name="Feed" component={Feed} />
 
-        <Tab.Screen name="Friends" component={Friends} />
+        <Tab.Screen name="Friends" component={FriendNav} />
         <Tab.Screen name="Profile" component={ProfileNav} />
       </Tab.Navigator>
     </>
@@ -55,6 +56,19 @@ const DashboardNav = () => {
       <Stack.Screen name="ThoughtDiary" component={YourThoughtDiary} />
       <Stack.Screen name="TodaysReport" component={TodaysReport} />
       <Stack.Screen name="AccessHelp" component={AccessHelp} />
+    </Stack.Navigator>
+  );
+};
+
+const FriendNav = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Main" component={Friends} />
+      <Stack.Screen name="add" component={AddFriend} />
     </Stack.Navigator>
   );
 };
