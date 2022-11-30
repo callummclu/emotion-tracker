@@ -31,6 +31,7 @@ class RowItem extends Component {
             borderColor: "black",
             borderWidth: 2,
           }}
+          onPress={onPress || null}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View style={{ marginLeft: 5 }}>

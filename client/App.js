@@ -7,7 +7,7 @@ import { Profile } from "./views/profile";
 import { DailyPrompt } from "./views/daily_prompt";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { Settings } from "./views/settings";
 import "react-native-gesture-handler";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MyTabBar } from "./components/tabBar";
@@ -62,8 +62,7 @@ const ProfileNav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Main" component={Profile} />
-      <Stack.Screen />
-      <Stack.Screen />
+      <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
   );
 };

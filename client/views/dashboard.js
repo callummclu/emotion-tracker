@@ -121,9 +121,7 @@ export const Dashboard = () => {
         />
         <View
           onPress={() =>
-            navigation.navigate("Dashboard", {
-              screen: "DashboardThoughtDiary",
-            })
+            navigation.navigate("Dashboard", { screen: "ThoughtDiary" })
           }
         >
           <RowItem
