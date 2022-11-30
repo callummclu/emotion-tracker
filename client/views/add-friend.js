@@ -48,7 +48,7 @@ export const AddFriend = () => {
         style={styles.image}
       >
         <Pressable
-          style={{ marginRight: 300, marginTop: -490, marginBottom: 50 }}
+          style={{ marginRight: 300, marginTop: -490, marginBottom: 0 }}
           onPress={() => navigation.navigate("Friends", { screen: "Main" })}
         >
           <Icon name={"arrow-left"} size={40} color={"black"} />
