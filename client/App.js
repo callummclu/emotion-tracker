@@ -18,6 +18,7 @@ import { Q2 } from "./views/Q2";
 import { Q3 } from "./views/Q3";
 import { Q4 } from "./views/Q4";
 import { DiaryEntry } from "./views/diary-entry";
+import { YourThoughtDiary } from "./views/your-thought-diary";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -30,13 +31,26 @@ const NavContainer = () => {
           headerShown: false,
         }}
       >
-        <Tab.Screen name="Dashboard" component={Dashboard} />
+        <Tab.Screen name="Dashboard" component={DashboardNav} />
         <Tab.Screen name="Feed" component={Feed} />
 
         <Tab.Screen name="Friends" component={Friends} />
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
     </>
+  );
+};
+
+const DashboardNav = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="DashboardMain" component={Dashboard} />
+      <Stack.Screen name="DashboardThoughtDiary" component={YourThoughtDiary} />
+    </Stack.Navigator>
   );
 };
 

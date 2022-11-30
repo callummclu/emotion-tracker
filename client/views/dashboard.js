@@ -8,9 +8,10 @@ import {
 } from "react-native-responsive-linechart";
 import { Dimensions } from "react-native";
 import RowItem from "../components/RowItem";
+import { useNavigation } from "@react-navigation/native";
 
 export const Dashboard = () => {
-  const screenWidth = Dimensions.get("window").width;
+  const navigation = useNavigation();
 
   const styles = StyleSheet.create({
     container: {
@@ -40,16 +41,30 @@ export const Dashboard = () => {
       >
         <Image
           source={require("../assets/logo.png")}
-          style={{ width: 250, height: 75, marginRight:"auto", marginLeft:10}}
+          style={{
+            width: 250,
+            height: 75,
+            marginRight: "auto",
+            marginLeft: 10,
+          }}
         />
-        <Text style={{textAlign:"center", fontSize:20, fontWeight:"bold", marginTop:50}}>Your weekly summary</Text>
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 20,
+            fontWeight: "bold",
+            marginTop: 50,
+          }}
+        >
+          Your weekly summary
+        </Text>
         <View
           style={{
             backgroundColor: "white",
             borderRadius: 20,
             marginTop: 10,
             padding: 10,
-            marginBottom:20,
+            marginBottom: 20,
           }}
         >
           <Chart
@@ -89,22 +104,35 @@ export const Dashboard = () => {
             />
           </Chart>
         </View>
-        <Text style={{ fontSize:15, textDecorationLine:"underline", fontWeight:"700", marginBottom:25}}>View more summaries</Text>
+        <Text
+          style={{
+            fontSize: 15,
+            textDecorationLine: "underline",
+            fontWeight: "700",
+            marginBottom: 25,
+          }}
+        >
+          View more summaries
+        </Text>
         <RowItem
           title="View todays report"
           icon="file-text"
           colorBG="#FFD29C"
         />
-        <RowItem
-          title="View thought diary"
-          icon="book-open"
-          colorBG="#FFD29C"
-        />
-        <RowItem
-          title="Access help"
-          icon="compass"
-          colorBG="#FFD29C"
-        />
+        <View
+          onPress={() =>
+            navigation.navigate("Dashboard", {
+              screen: "DashboardThoughtDiary",
+            })
+          }
+        >
+          <RowItem
+            title="View thought diary"
+            icon="book-open"
+            colorBG="#FFD29C"
+          />
+        </View>
+        <RowItem title="Access help" icon="compass" colorBG="#FFD29C" />
       </ImageBackground>
     </View>
   );

@@ -5,7 +5,13 @@ import Icon from "react-native-vector-icons/Feather";
 
 class RowItem extends Component {
   render() {
-    const { title, icon, colorBG: backgroundColor, style } = this.props;
+    const {
+      title,
+      icon,
+      colorBG: backgroundColor,
+      style,
+      onPress,
+    } = this.props;
     return (
       <View
         style={
